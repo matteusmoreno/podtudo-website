@@ -80,7 +80,7 @@ function Navbar() {
         >
           <img src="/assets/podtudo-logo.png" alt="" aria-hidden="true" />
           <span className="navbar-wordmark">
-            Podtudo <span className="navbar-wordmark-sub">Podcast</span>
+            PodTudo <span className="navbar-wordmark-sub">Podcast</span>
           </span>
         </div>
 
