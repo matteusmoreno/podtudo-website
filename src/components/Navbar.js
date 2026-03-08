@@ -105,7 +105,7 @@ function Navbar() {
               onClick={() => scrollTo('listen')}
             >
               <i className="fas fa-headphones" aria-hidden="true" />
-              Ouvir Agora
+              Assistir Agora
             </button>
           </li>
         </ul>
