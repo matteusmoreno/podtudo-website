@@ -953,8 +953,9 @@ ul    { list-style: none; }
 
 /* ---------- ABOUT ---------- */
 .about {
-  background: var(--bg-secondary);
+  background: var(--bg-primary);
 }
+/* top separator line */
 .about::before {
   content: '';
   position: absolute;
@@ -962,6 +963,16 @@ ul    { list-style: none; }
   height: 1px;
   background: var(--gradient-main);
   opacity: 0.25;
+}
+/* subtle purple glow from top-right */
+.about::after {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  width: 55%;
+  height: 60%;
+  background: radial-gradient(ellipse at 80% 10%, rgba(139, 92, 246, 0.07) 0%, transparent 65%);
+  pointer-events: none;
 }
 
 .about-grid {
@@ -1292,7 +1303,27 @@ ul    { list-style: none; }
 
 /* ---------- LISTEN / PLATFORMS ---------- */
 .listen {
-  background: var(--bg-secondary);
+  background: var(--bg-primary);
+}
+/* subtle cyan glow from bottom-left */
+.listen::before {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 50%;
+  height: 55%;
+  background: radial-gradient(ellipse at 15% 90%, rgba(6, 182, 212, 0.07) 0%, transparent 65%);
+  pointer-events: none;
+  z-index: 0;
+}
+.listen::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: var(--gradient-main);
+  opacity: 0.15;
+  z-index: 0;
 }
 
 /* Two-column layout */
@@ -1848,7 +1879,28 @@ ul    { list-style: none; }
 
 /* ---------- SPONSORS ---------- */
 .sponsors {
-  background: var(--bg-secondary);
+  background: var(--bg-primary);
+}
+/* subtle pink glow from top-center */
+.sponsors::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 50%;
+  transform: translateX(-50%);
+  width: 70%;
+  height: 50%;
+  background: radial-gradient(ellipse at 50% 0%, rgba(236, 72, 153, 0.07) 0%, transparent 65%);
+  pointer-events: none;
+  z-index: 0;
+}
+.sponsors::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: var(--gradient-main);
+  opacity: 0.15;
+  z-index: 0;
 }
 
 /* 3-column grid — centered, max-width to avoid stretching on ultra-wide */
