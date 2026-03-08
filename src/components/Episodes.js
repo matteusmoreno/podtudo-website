@@ -67,8 +67,7 @@ function Episodes() {
       },
       pagination: {
         el: '.ep-swiper-pagination',
-        clickable: true,
-        type: 'bullets',
+        type: 'progressbar',
       },
       breakpoints: {
         480:  { slidesPerView: 1.5, spaceBetween: 20 },

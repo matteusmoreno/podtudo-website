@@ -1726,25 +1726,20 @@ ul    { list-style: none; }
 }
 
 .ep-swiper-pagination {
-  display: flex;
-  justify-content: center;
-  gap: 0.4rem;
-  margin-top: 1.25rem;
-  padding: 0.25rem 0;
+  position: relative !important;
+  height: 3px !important;
+  width: 100%;
+  margin-top: 1.5rem;
+  border-radius: 100px;
+  background: rgba(255, 255, 255, 0.08) !important;
+  overflow: hidden;
+  top: auto !important;
+  bottom: auto !important;
 }
-.ep-swiper-pagination .swiper-pagination-bullet {
-  width: 8px;
-  height: 8px;
-  background: var(--text-muted);
-  opacity: 0.45;
-  border-radius: 50%;
-  cursor: pointer;
-  transition: var(--transition);
-}
-.ep-swiper-pagination .swiper-pagination-bullet-active {
-  background: var(--accent-purple);
-  opacity: 1;
-  transform: scale(1.25);
+.ep-swiper-pagination .swiper-pagination-progressbar-fill {
+  background: var(--gradient-main) !important;
+  border-radius: 100px;
+  box-shadow: 0 0 8px rgba(139, 92, 246, 0.5);
 }
 
 .ep-card {
