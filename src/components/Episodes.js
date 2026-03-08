@@ -97,10 +97,30 @@ function Episodes() {
             <span className="next-ep-pill">
               <i className="fas fa-circle" aria-hidden="true" /> Em breve
             </span>
-            <h3 className="next-ep-heading">Próximo Episódio</h3>
-            <p className="next-ep-hint">
-              Fique ligado nas nossas redes sociais para não perder a data de lançamento do próximo episódio!
-            </p>
+
+            <div className="next-ep-main">
+              <p className="next-ep-label">Próximo Episódio</p>
+              <h3 className="next-ep-heading">Nocilas Mendonça</h3>
+              <p className="next-ep-role">
+                <i className="fas fa-star" aria-hidden="true" /> Influencer Digital
+              </p>
+            </div>
+
+            <div className="next-ep-meta">
+              <div className="next-ep-meta-item">
+                <i className="fas fa-hashtag" aria-hidden="true" />
+                <span><strong>Episódio</strong> #050</span>
+              </div>
+              <div className="next-ep-meta-item">
+                <i className="fas fa-calendar-alt" aria-hidden="true" />
+                <span><strong>Data</strong> 09 de março de 2026</span>
+              </div>
+              <div className="next-ep-meta-item">
+                <i className="fas fa-clock" aria-hidden="true" />
+                <span><strong>Horário</strong> 20h00</span>
+              </div>
+            </div>
+
             <a
               href={YOUTUBE_CHANNEL}
               target="_blank"
@@ -109,10 +129,6 @@ function Episodes() {
             >
               <i className="fab fa-youtube" aria-hidden="true" /> Inscreva-se no Canal
             </a>
-          </div>
-          <div className="next-ep-img-col">
-            <div className="next-ep-img-glow" aria-hidden="true" />
-            <img src="/assets/next-podcast.png" alt="Próximo convidado" />
           </div>
         </div>
 
