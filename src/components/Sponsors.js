@@ -39,7 +39,7 @@ function Sponsors() {
         <div className="sponsors-swiper-wrap" data-aos="fade-up">
           <div className="swiper sponsors-swiper" ref={swiperRef}>
             <div className="swiper-wrapper">
-              {SPONSORS.map(({ name, image }) => (
+              {SPONSORS.map(({ name, image, links }) => (
                 <div key={name} className="swiper-slide sponsor-card">
                   <div className="sponsor-card-accent" aria-hidden="true" />
                   <div className="sponsor-logo-wrap">
@@ -47,6 +47,23 @@ function Sponsors() {
                     <img src={image} alt={`Logo ${name}`} loading="lazy" />
                   </div>
                   <h3 className="sponsor-name">{name}</h3>
+                  {links && links.length > 0 && (
+                    <div className="sponsor-links">
+                      {links.map(({ icon, href, label }) => (
+                        <a
+                          key={label}
+                          href={href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="sponsor-link-btn"
+                          aria-label={`${name} — ${label}`}
+                          title={label}
+                        >
+                          <i className={icon} aria-hidden="true" />
+                        </a>
+                      ))}
+                    </div>
+                  )}
                 </div>
               ))}
             </div>

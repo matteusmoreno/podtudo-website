@@ -2041,6 +2041,36 @@ ul    { list-style: none; }
 }
 .sponsor-card:hover .sponsor-name { color: var(--text-primary); }
 
+/* Sponsor link icons */
+.sponsor-links {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 1;
+}
+.sponsor-link-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  text-decoration: none;
+  transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+}
+.sponsor-link-btn:hover {
+  background: var(--gradient-main);
+  border-color: transparent;
+  color: #fff;
+  transform: scale(1.15);
+}
+
 /* ── CTA Banner ── */
 .sponsor-cta-banner {
   position: relative;
