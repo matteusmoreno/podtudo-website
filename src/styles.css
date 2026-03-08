@@ -907,21 +907,35 @@ ul    { list-style: none; }
   gap: 1.5rem;
 }
 
+/* ── Card ── */
 .host-card { cursor: default; }
+
 .host-card-inner {
   background: var(--bg-card);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-lg);
   overflow: hidden;
-  transition: var(--transition);
+  transition: transform 0.35s cubic-bezier(0.4,0,0.2,1),
+              border-color 0.35s ease,
+              box-shadow 0.35s ease;
   box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
 }
 .host-card-inner:hover {
-  transform: translateY(-10px);
-  border-color: var(--accent-purple);
-  box-shadow: var(--shadow-hover);
+  transform: translateY(-8px);
+  border-color: rgba(139, 92, 246, 0.5);
+  box-shadow: 0 20px 60px rgba(139, 92, 246, 0.18);
 }
 
+/* Thin gradient line at top */
+.host-card-accent {
+  height: 3px;
+  background: var(--gradient-main);
+  flex-shrink: 0;
+}
+
+/* Photo */
 .host-img-wrap {
   position: relative;
   aspect-ratio: 1 / 1;
@@ -932,61 +946,79 @@ ul    { list-style: none; }
   height: 100%;
   object-fit: cover;
   object-position: top center;
-  transition: transform 0.6s ease;
+  transition: transform 0.55s ease;
+  display: block;
 }
 .host-card-inner:hover .host-img-wrap img {
-  transform: scale(1.06);
+  transform: scale(1.05);
 }
-
-.host-overlay {
+.host-img-glow {
   position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgba(7,7,14,0.92) 0%, transparent 60%);
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  padding: 1.25rem;
-  opacity: 0;
-  transition: var(--transition);
+  bottom: 0; left: 0; right: 0;
+  height: 40%;
+  background: linear-gradient(to top, var(--bg-card), transparent);
+  pointer-events: none;
 }
-.host-card-inner:hover .host-overlay { opacity: 1; }
 
+/* Info block */
+.host-info {
+  padding: 1.1rem 1.25rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  flex: 1;
+}
+
+.host-name {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  text-align: center;
+  line-height: 1.25;
+}
+
+.host-role {
+  display: inline-block;
+  padding: 0.2rem 0.7rem;
+  font-size: 0.68rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent-purple);
+  background: rgba(139, 92, 246, 0.1);
+  border: 1px solid rgba(139, 92, 246, 0.25);
+  border-radius: 100px;
+}
+
+/* Social icons — always visible, no overlay */
 .host-social {
   display: flex;
-  gap: 0.75rem;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
 }
-.host-social a {
-  width: 38px;
-  height: 38px;
+.host-social-btn {
+  width: 34px;
+  height: 34px;
   border-radius: 50%;
-  background: var(--gradient-main);
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
-  font-size: 0.875rem;
-  transition: var(--transition);
+  color: var(--text-secondary);
+  font-size: 0.82rem;
+  transition: background 0.25s ease, color 0.25s ease,
+              border-color 0.25s ease, transform 0.25s ease;
+  text-decoration: none;
 }
-.host-social a:hover {
-  transform: scale(1.15);
-  box-shadow: var(--shadow-purple);
-}
-
-.host-info {
-  padding: 1.25rem;
-  text-align: center;
-}
-.host-info h3 {
-  font-size: 1.05rem;
-  font-weight: 600;
-  margin-bottom: 0.35rem;
-}
-.host-role {
-  font-size: 0.75rem;
-  color: var(--accent-purple);
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  font-weight: 600;
+.host-social-btn:hover {
+  background: var(--gradient-main);
+  border-color: transparent;
+  color: #fff;
+  transform: scale(1.12);
 }
 
 /* ---------- LISTEN / PLATFORMS ---------- */
