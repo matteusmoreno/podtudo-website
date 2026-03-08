@@ -1,25 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from 'react';
+import './styles.css';
+
+import Navbar    from './components/Navbar';
+import Hero      from './components/Hero';
+import About     from './components/About';
+import Hosts     from './components/Hosts';
+import Listen    from './components/Listen';
+import Episodes  from './components/Episodes';
+import Sponsors  from './components/Sponsors';
+import Footer    from './components/Footer';
 
 function App() {
+  useEffect(() => {
+    if (window.AOS) {
+      window.AOS.init({
+        duration: 800,
+        once: true,
+        easing: 'ease-out-cubic',
+        offset: 60,
+      });
+    }
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <Navbar />
+      <main>
+        <Hero />
+        <About />
+        <Hosts />
+        <Episodes />
+        <Listen />
+        <Sponsors />
+      </main>
+      <Footer />
     </div>
   );
 }
 
 export default App;
+
