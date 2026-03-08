@@ -1,12 +1,31 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import SPONSORS from '../data/sponsors';
 
 function Sponsors() {
+  const swiperRef = useRef(null);
+
+  useEffect(() => {
+    if (!window.Swiper || !swiperRef.current) return;
+    const swiper = new window.Swiper(swiperRef.current, {
+      slidesPerView: 2,
+      spaceBetween: 20,
+      grabCursor: true,
+      loop: true,
+      autoplay: { delay: 3500, disableOnInteraction: false, pauseOnMouseEnter: true },
+      pagination: { el: '.sponsors-swiper-pagination', clickable: true },
+      breakpoints: {
+        480:  { slidesPerView: 2,   spaceBetween: 20 },
+        768:  { slidesPerView: 3,   spaceBetween: 24 },
+        1024: { slidesPerView: 4,   spaceBetween: 28 },
+      },
+    });
+    return () => swiper.destroy(true, true);
+  }, []);
+
   return (
     <section className="sponsors section" id="sponsors" aria-labelledby="sponsors-title">
       <div className="container">
 
-        {/* Header */}
         <div className="section-header" data-aos="fade-up">
           <span className="section-tag">Parceiros</span>
           <h2 className="section-title" id="sponsors-title">
@@ -17,26 +36,22 @@ function Sponsors() {
           </p>
         </div>
 
-        {/* Sponsor cards */}
-        <div className="sponsors-grid">
-          {SPONSORS.map(({ name, image }, i) => (
-            <div
-              key={name}
-              className="sponsor-card"
-              data-aos="fade-up"
-              data-aos-delay={i * 120}
-            >
-              <div className="sponsor-card-accent" aria-hidden="true" />
-              <div className="sponsor-badge">
-                <i className="fas fa-handshake" aria-hidden="true" /> Parceiro Oficial
-              </div>
-              <div className="sponsor-logo-wrap">
-                <div className="sponsor-logo-glow" aria-hidden="true" />
-                <img src={image} alt={`Logo ${name}`} loading="lazy" />
-              </div>
-              <h3 className="sponsor-name">{name}</h3>
+        <div className="sponsors-swiper-wrap" data-aos="fade-up">
+          <div className="swiper sponsors-swiper" ref={swiperRef}>
+            <div className="swiper-wrapper">
+              {SPONSORS.map(({ name, image }) => (
+                <div key={name} className="swiper-slide sponsor-card">
+                  <div className="sponsor-card-accent" aria-hidden="true" />
+                  <div className="sponsor-logo-wrap">
+                    <div className="sponsor-logo-glow" aria-hidden="true" />
+                    <img src={image} alt={`Logo ${name}`} loading="lazy" />
+                  </div>
+                  <h3 className="sponsor-name">{name}</h3>
+                </div>
+              ))}
             </div>
-          ))}
+          </div>
+          <div className="sponsors-swiper-pagination swiper-pagination" />
         </div>
 
         {/* CTA banner */}
