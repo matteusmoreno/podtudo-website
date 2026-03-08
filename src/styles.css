@@ -1168,6 +1168,33 @@ ul    { list-style: none; }
   color: var(--text-secondary);
 }
 
+/* ── Hosts mobile Swiper ── */
+.hosts-swiper-wrap {
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 2.5rem;
+}
+.hosts-swiper { overflow: visible; }
+.hosts-swiper .host-card { height: auto; }
+.hosts-swiper-pagination {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+}
+.hosts-swiper-pagination .swiper-pagination-bullet {
+  width: 7px; height: 7px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 100px;
+  transition: width 0.3s ease, background 0.3s ease;
+  opacity: 1;
+}
+.hosts-swiper-pagination .swiper-pagination-bullet-active {
+  width: 22px;
+  background: var(--gradient-main);
+}
+
 /* ---------- HOSTS ---------- */
 .hosts {
   background: var(--bg-primary);
@@ -2351,11 +2378,6 @@ ul    { list-style: none; }
 
 /* --- Mobile portrait --- */
 @media (max-width: 480px) {
-  .hosts-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-  }
-
   .sponsors-grid {
     grid-template-columns: 1fr;
     max-width: 340px;
@@ -2418,7 +2440,6 @@ ul    { list-style: none; }
 
 /* --- Very small screens --- */
 @media (max-width: 360px) {
-  .hosts-grid { grid-template-columns: 1fr; }
   .hero-title  { font-size: 2.9rem; }
   .hero-inner  { padding-top: 4rem; padding-bottom: 2rem; gap: 1.25rem; }
   .hero-visual { max-width: 110px; }
