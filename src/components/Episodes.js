@@ -93,20 +93,13 @@ function Episodes() {
 
         {/* ── NEXT EPISODE FEATURE ── */}
         <div className="next-ep-wrap" data-aos="fade-up" data-aos-delay="100">
-          <img
-            src="/assets/next-podcast.png"
-            alt=""
-            className="next-ep-bg"
-            aria-hidden="true"
-          />
-          <div className="next-ep-overlay" aria-hidden="true" />
           <div className="next-ep-content">
             <span className="next-ep-pill">
               <i className="fas fa-circle" aria-hidden="true" /> Em breve
             </span>
             <h3 className="next-ep-heading">Próximo Episódio</h3>
             <p className="next-ep-hint">
-              Fique ligado nas nossas redes — em breve revelamos o próximo convidado.
+              Fique ligado nas nossas redes sociais para não perder a data de lançamento do próximo episódio!
             </p>
             <a
               href={YOUTUBE_CHANNEL}
@@ -117,17 +110,26 @@ function Episodes() {
               <i className="fab fa-youtube" aria-hidden="true" /> Inscreva-se no Canal
             </a>
           </div>
+          <div className="next-ep-img-col">
+            <div className="next-ep-img-glow" aria-hidden="true" />
+            <img src="/assets/next-podcast.png" alt="Próximo convidado" />
+          </div>
         </div>
 
         {/* ── EPISODES CAROUSEL ── */}
         <div className="ep-swiper-wrap" data-aos="fade-up">
-          <div className="ep-swiper-nav">
-            <button className="ep-swiper-prev" aria-label="Episódio anterior">
-              <i className="fas fa-chevron-left" />
-            </button>
-            <button className="ep-swiper-next" aria-label="Próximo episódio">
-              <i className="fas fa-chevron-right" />
-            </button>
+          <div className="ep-swiper-header">
+            <h3 className="ep-swiper-title">
+              <i className="fab fa-youtube" aria-hidden="true" /> Episódios Anteriores
+            </h3>
+            <div className="ep-swiper-nav">
+              <button className="ep-swiper-prev" aria-label="Episódio anterior">
+                <i className="fas fa-chevron-left" />
+              </button>
+              <button className="ep-swiper-next" aria-label="Próximo episódio">
+                <i className="fas fa-chevron-right" />
+              </button>
+            </div>
           </div>
           <div className="swiper ep-swiper" ref={swiperRef}>
             <div className="swiper-wrapper">
