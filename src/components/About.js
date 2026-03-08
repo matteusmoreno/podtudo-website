@@ -1,10 +1,27 @@
 import React from 'react';
 
 const FEATURES = [
-  { icon: 'fas fa-microphone', title: 'Conteúdo Rico',  desc: 'Episódios variados que falam sobre tudo que importa' },
-  { icon: 'fas fa-users',      title: 'Comunidade',     desc: 'Uma família que cresce a cada episódio'              },
-  { icon: 'fas fa-heart',      title: 'Feito com Amor', desc: 'Produzido com paixão em Saquarema — RJ'              },
+  {
+    icon: 'fas fa-microphone-alt',
+    label: 'Conteúdo Livre',
+    desc: 'Sem pauta engessada. Do humor ao esporte, cada episódio é uma surpresa.',
+    color: 'purple',
+  },
+  {
+    icon: 'fas fa-users',
+    label: 'Comunidade Real',
+    desc: 'Uma galera que cresce junto — com histórias, risadas e debates de verdade.',
+    color: 'pink',
+  },
+  {
+    icon: 'fas fa-map-marker-alt',
+    label: 'Raiz Saquaremense',
+    desc: 'Nascemos em Saquarema — RJ com orgulho, mas o papo chega em todo lugar.',
+    color: 'cyan',
+  },
 ];
+
+const TAGS = ['#Humor', '#Cultura', '#Esportes', '#Política', '#Atualidades', '#Entrevistas'];
 
 function About() {
   return (
@@ -18,26 +35,27 @@ function About() {
         </div>
 
         <div className="about-grid">
-          <div className="about-text" data-aos="fade-right" data-aos-delay="200">
+          {/* ── Left: text + features ── */}
+          <div className="about-text" data-aos="fade-right" data-aos-delay="150">
             <p>
-              O <strong>PodTudo E.C.</strong> é o podcast que fala de tudo — porque aqui, cada voz
-              tem espaço. Humor, cultura, atualidades, esportes, entrevistas, e muito mais.
+              O <strong>PodTudo E.C.</strong> é o podcast que fala de tudo — porque aqui,
+              cada voz tem espaço. Humor, cultura, atualidades, esportes, entrevistas e muito mais.
               Nascemos em <strong>Saquarema, RJ</strong>, mas a nossa missão é chegar em todo lugar.
             </p>
             <p>
               Com apresentadores apaixonados e um formato livre e descontraído, o PodTudo E.C.
-              redefine o que é um podcast. Nada de pauta engessada — aqui a democracia rege
-              o conteúdo.
+              redefine o que é um podcast. Nada de pauta engessada —{' '}
+              <span className="about-em">aqui a democracia rege o conteúdo.</span>
             </p>
 
             <div className="about-features">
-              {FEATURES.map(({ icon, title, desc }) => (
-                <div className="feature-item" key={title}>
-                  <div className="feature-icon" aria-hidden="true">
+              {FEATURES.map(({ icon, label, desc, color }) => (
+                <div className={`feature-card feature-card--${color}`} key={label}>
+                  <div className="feature-card-icon" aria-hidden="true">
                     <i className={icon} />
                   </div>
-                  <div>
-                    <h4>{title}</h4>
+                  <div className="feature-card-body">
+                    <h4>{label}</h4>
                     <p>{desc}</p>
                   </div>
                 </div>
@@ -45,14 +63,21 @@ function About() {
             </div>
           </div>
 
-          <div className="about-card" data-aos="fade-left" data-aos-delay="400">
-            <div className="about-card-inner">
-              <div className="location-badge">
-                <i className="fas fa-map-marker-alt" aria-hidden="true" />
-                <div>
-                  <span className="loc-city">Saquarema</span>
-                  <span className="loc-state">Rio de Janeiro, Brasil</span>
-                </div>
+          {/* ── Right: visual card ── */}
+          <div className="about-visual" data-aos="fade-left" data-aos-delay="300">
+            <div className="about-card-glow" aria-hidden="true" />
+            <div className="about-card">
+              <div className="about-wave" aria-hidden="true">
+                {Array.from({ length: 28 }).map((_, i) => (
+                  <div
+                    key={i}
+                    className="wave-bar"
+                    style={{
+                      animationDelay: `${(i * 0.06).toFixed(2)}s`,
+                      height: `${12 + ((i * 11 + 5) % 38)}px`,
+                    }}
+                  />
+                ))}
               </div>
 
               <div className="about-quote">
@@ -60,16 +85,14 @@ function About() {
                 <blockquote>O podcast mais democrático da internet</blockquote>
               </div>
 
-              <div className="about-wave" aria-hidden="true">
-                {Array.from({ length: 22 }).map((_, i) => (
-                  <div
-                    key={i}
-                    className="wave-bar"
-                    style={{
-                      animationDelay: `${(i * 0.07).toFixed(2)}s`,
-                      height: `${10 + ((i * 13 + 7) % 40)}px`,
-                    }}
-                  />
+              <div className="about-location">
+                <i className="fas fa-map-marker-alt" aria-hidden="true" />
+                <span>Saquarema — Rio de Janeiro, Brasil</span>
+              </div>
+
+              <div className="about-tags">
+                {TAGS.map(tag => (
+                  <span className="about-tag" key={tag}>{tag}</span>
                 ))}
               </div>
             </div>
