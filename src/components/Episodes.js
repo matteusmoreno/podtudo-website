@@ -99,7 +99,7 @@ function Episodes() {
 
             <div className="next-ep-main">
               <p className="next-ep-label">Próximo Episódio</p>
-              <h3 className="next-ep-heading">Nocilas Mendonça</h3>
+              <h3 className="next-ep-heading">Nicolas Mendonça</h3>
               <p className="next-ep-role">
                 <i className="fas fa-star" aria-hidden="true" /> Influencer Digital
               </p>
